@@ -1,5 +1,14 @@
 package edu.trincoll.koans
 
+import edu.trincoll.koans.solutions.Num
+import edu.trincoll.koans.solutions.RationalNumber
+import edu.trincoll.koans.solutions.Sum
+import edu.trincoll.koans.solutions.comparePeople
+import edu.trincoll.koans.solutions.eval
+import edu.trincoll.koans.solutions.evalSmartCasts
+import edu.trincoll.koans.solutions.getPeople
+import edu.trincoll.koans.solutions.r
+import edu.trincoll.koans.solutions.useDifferentRandomClasses
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -12,7 +21,13 @@ class ClassesTest {
 
     @Test
     fun testComparePeople() {
+<<<<<<< HEAD
         assertTrue(comparePeople())
+=======
+        assertTrue(
+            comparePeople(),
+            "'comparePeople' function should return true")
+>>>>>>> upstream/main
     }
 
     @Test
@@ -53,11 +68,23 @@ class ClassesTest {
 
     @Test
     fun testIntExtension() {
+<<<<<<< HEAD
         assertEquals(RationalNumber(4, 1), 4.r())
+=======
+        assertEquals(
+            RationalNumber(4, 1), 4.r(),
+            "Rational number creation error: ")
+>>>>>>> upstream/main
     }
 
     @Test
     fun testPairExtension() {
+<<<<<<< HEAD
         assertEquals(RationalNumber(2, 3), Pair(2, 3).r())
+=======
+        assertEquals(
+            RationalNumber(2, 3), Pair(2, 3).r(),
+            "Rational number creation error: ")
+>>>>>>> upstream/main
     }
 }

@@ -1,4 +1,8 @@
-package edu.trincoll.koans
+package edu.trincoll.koans.solutions
+
+// Rename on import
+import kotlin.random.Random as KRandom
+import java.util.Random as JRandom
 
 // Data classes
 data class Person(val name: String, val age: Int)
@@ -18,10 +22,9 @@ fun evalSmartCasts(expr: Expr): Int =
     when (expr) {
         is Num -> expr.value
         is Sum -> evalSmartCasts(expr.left) + evalSmartCasts(expr.right)
-        else -> throw IllegalArgumentException("Unknown expression")
     }
 
-interface Expr
+sealed interface Expr
 class Num(val value: Int) : Expr
 class Sum(val left: Expr, val right: Expr) : Expr
 
@@ -30,24 +33,20 @@ fun eval(expr: Expr): Int =
     when (expr) {
         is Num -> expr.value
         is Sum -> eval(expr.left) + eval(expr.right)
-        else -> throw IllegalArgumentException("Unknown expression")
     }
 
-// Rename on import
-// import kotlin.random.Random
-// import java.util.Random
 
 fun useDifferentRandomClasses(): String {
     return "Kotlin random: " +
-            kotlin.random.Random.nextInt(2) +
+            KRandom.nextInt(2) +
             " Java random:" +
-            java.util.Random().nextInt(2) +
+            JRandom().nextInt(2) +
             "."
 }
 
 // Extension functions
-fun Int.r(): RationalNumber = RationalNumber(this, 1)  // Converts an Int to a RationalNumber
+fun Int.r(): RationalNumber = RationalNumber(this, 1)
 
-fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(this.first, this.second)  // Converts a Pair to a RationalNumber
+fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(first, second)
 
 data class RationalNumber(val numerator: Int, val denominator: Int)
